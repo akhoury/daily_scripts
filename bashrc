@@ -1,45 +1,15 @@
 # append to the history file, don't overwrite it
 ###################################################################################################
 shopt -s histappend
+
 export PATH=$ICECAST_DIR:$PATH
 export TZ=America/New_York
 export PATH=$PATH:/Applications/Xcode.app/Contents/Developer/usr/bin:/usr/local/mysql/bin
-################################################################################################
-# Setting up colors for Terminal
-################################################################################################
-DIR=Ex
-SYM_LINK=Gx
-SOCKET=Fx
-PIPE=dx
-EXE=Cx
-BLOCK_SPECIAL=Dx
-CHAR_SPECIAL=Dx
-EXE_SUID=hx
-EXE_GUID=ax
-DIR_STICKY=Ex
-DIR_WO_STICKY=Ex
-
-##################################################################################################
-# enables color in the terminal bash shell export
-###################################################################################################
-CLICOLOR=1
-
-#####################################################################################################
 # sets up the color scheme for list export
-####################################################################################################
-LSCOLORS="$DIR$SYM_LINK$SOCKET$PIPE$EXE$BLOCK_SPECIAL$CHAR_SPECIAL$EXE_SUID$EXE_GUID$DIR_STICKY$DIR_WO_STICKY"
 
-#################################################################################################
-# Modifies the bash prompt so that it contains the following information:
-#      Displays the user name @ computer name in green
-#      Displays the working directory in cyan  
-#      Displays the command number in black
-#################################################################################################
-# export PS1='\033[00m\]\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;36m\]\w\[\033[00m\](line \#)$ '
-export PS1='\u@\h [\w]\$ '
-#enables color for iTerm
-export TERM=xterm-color
-
+export TERM="xterm-color"
+# PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+export PS1="[\[\e[33m\]\u@\H \[\e[32m\]\w\[\e[0m\]]\n[\[\e[31m\]\!\[\e[0m\]] > "
 ###################################################################################################
 # aliases that make the ls command more usable
 ###################################################################################################

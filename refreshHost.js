@@ -59,9 +59,9 @@ casper.then(function() {
 casper.then(function() {
     console.log('clicked ok, new location is ' + this.getCurrentUrl());
     if (this.exists('.successbox')) {
-        this.echo('found .successbox, host updated', 'INFO');
+        this.echo('\n\n\nSUCCESS!, host updated at ' + new Date(), 'INFO');
     } else {
-        this.echo('.successbox not found, Host not updated', 'ERROR');
+        this.echo('\n\n\nFAIL!!!!! .successbox not found, Host NOT updated', 'ERROR');
 				casper.exit();
     }
 });

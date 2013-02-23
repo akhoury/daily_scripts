@@ -4,11 +4,12 @@
 // IMPORTANT - you will need to install PhantomJs and Casper JS
 // IMPORTANT - COULD BREAK ANY DAY! I would use it and email if breaks or something
 // usage: casperjs refreshHost.js your_no-ip_com_email@fake.com password
-
+// THIS WILL ONLY WORK IF YOU HAVE ONLY 1 HOST (based on no-ip current policy, you can only have one on a free plan)
+// YOu will need to tweak it to handle more hosts - or contact me 
 
 var casper = require("casper").create(), email, password;
 
-console.log('email: ' + casper.cli.get(0));
+console.log('email: ' + casper.cli.get(0) + ' --  today is: ' + new Date());
 email = casper.cli.get(0);
 password = casper.cli.get(1);
 

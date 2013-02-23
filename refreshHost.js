@@ -19,24 +19,40 @@ casper.thenEvaluate(function(login) {
     document.querySelector('form[id="clogs"]').submit();
 			}, {'email': email , 'pass': password}).waitForText("Last Login:", function() {
 		  	console.log('login form submitted, new location is ' + this.getCurrentUrl());
-			});
+			},
+			function(){
+				console.log('Timed out at login form, no text found');
+				casper.exit();
+			}, 10000);
 casper.then(function() {
     this.open('https://www.noip.com/members/dns').waitForText("Hosts By Domain", function() {
 	  	console.log('Manage Hosts clicked, new location is ' + this.getCurrentUrl());
-		});
+		},
+			function(){
+				console.log('Timed out at Manage Hosts page load, no text found');
+				casper.exit();
+			}, 10000);
 });
 casper.then(function() {
   this.clickLabel('Modify', 'a');
 	this.waitForText("Hostname Information", function() { 
 		console.log('Modify clicked, new location is ' + this.getCurrentUrl()); 
-		});
+		},
+		function(){
+			console.log('Timed out at Modify click form, no text found');
+			casper.exit();
+		}, 10000);
 });
 casper.then(function() {
 	casper.thenEvaluate(function() {
 	    document.querySelector('form[method="POST"]').submit();
 				}).waitForText("updated", function() {
 			  	console.log('Update form submitted, new location is ' + this.getCurrentUrl());
-			});	
+			},
+			function(){
+				console.log('Timed out at Update Host form, no text found');
+				casper.exit();
+			}, 10000);	
 });
 casper.then(function() {
     console.log('clicked ok, new location is ' + this.getCurrentUrl());
@@ -44,6 +60,7 @@ casper.then(function() {
         this.echo('found .successbox, host updated', 'INFO');
     } else {
         this.echo('.successbox not found, Host not updated', 'ERROR');
+				casper.exit();
     }
 });
 casper.run();

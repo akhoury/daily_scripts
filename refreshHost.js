@@ -9,7 +9,8 @@
 
 var casper = require("casper").create(), email, password;
 
-console.log('email: ' + casper.cli.get(0) + ' --  today is: ' + new Date());
+console.log('email: ' + casper.cli.get(0)) + '\n\n');
+
 email = casper.cli.get(0);
 password = casper.cli.get(1);
 

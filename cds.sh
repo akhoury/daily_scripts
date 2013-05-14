@@ -1,5 +1,12 @@
 #!/bin/bash
-# A quick bash script to quickly Change Directory(cd) in an 'Upward' direction
+## A quick bash script to quickly Change Directory(cd) in an 'Upward' direction
+
+## INSTALL: 
+## just copy this file into your home dir, or wherever you want
+# sudo chmod +x $HONE/cds.sh
+## then add this line to your .bashrc file to create an alias command (remove the # )
+# alias cds='. $HOME/cds.sh'
+
 
 SCRIPT_PATH=$(pwd) # path of the script is located
 SCRIPT_NAME=$0   # $0 is the name of the script

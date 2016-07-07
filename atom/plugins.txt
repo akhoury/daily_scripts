@@ -1,0 +1,6 @@
+intellij-idea-keymap
+terminal-plus
+node-debugger
+linter
+editorconfig
+atom-ternjs
